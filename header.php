@@ -16,4 +16,10 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<?php wp_body_open(); ?>
-		<h1><?php bloginfo( 'name' ); ?></h1>
+
+		<a href="#content" class="screen-reader-text is-focusable"><?php esc_html_e( 'Skip to Content', 'blackstone-main' ); ?></a>
+		<a href="#footer" class="screen-reader-text is-focusable"><?php esc_html_e( 'Skip to Footer', 'blackstone-main' ); ?></a>
+
+		<?php get_template_part( 'partials/header', 'global' ); ?>
+
+		<div id="content" class="site-content" role="main">

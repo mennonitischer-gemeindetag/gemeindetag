@@ -1,0 +1,26 @@
+.site-content {
+
+	& > * {
+		margin: 1em auto;
+		max-width: var(--w-standard);
+	}
+
+	& > .alignwide {
+		margin: 2em auto;
+		max-width: var(--w-extended);
+	}
+
+	& > .alignfull {
+		margin: 3em auto;
+		max-width: var(--w-full);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+}

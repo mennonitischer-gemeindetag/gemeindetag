@@ -1,0 +1,39 @@
+/*
+ * Widths
+ */
+:root {
+	--w-standard: 90%;
+	--w-extended: 95%;
+	--w-wide: 95%;
+	--w-full: 100%;
+
+	@media (--bp-small) {
+		--w-standard: 80%;
+		--w-extended: 90%;
+		--w-wide: 90%;
+	}
+
+	@media (--bp-medium) {
+		--w-standard: 60%;
+		--w-extended: 70%;
+		--w-wide: 80%;
+	}
+
+	@media (--bp-large) {
+		--w-standard: 50%;
+		--w-extended: 60%;
+		--w-wide: 80%;
+	}
+
+	@media (--bp-xlarge) {
+		--w-standard: 650px;
+		--w-extended: 800px;
+		--w-wide: 80%;
+	}
+
+	@media (--bp-xxlarge) {
+		--w-wide: 1100px;
+	}
+
+	--border-radius: 8px;
+}

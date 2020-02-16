@@ -1,0 +1,62 @@
+@import url("https://use.typekit.net/yrd4qvx.css");
+
+/*
+ * Fonts
+ */
+:root {
+	--ff-main: "myriad-pro", sans-serif;
+	--ff-condensed: "myriad-pro-condensed", sans-serif;
+	--ff-dashicons: dashicons;
+
+	--fw-light: 300;
+	--fw-medium: 500;
+	--fw-bold: 700;
+
+	--f-family-heading: "myriad-pro-condensed", sans-serif;
+	--f-weight-heading: normal;
+
+	--f-color: lighten(#444, 10%);
+	--f-color-heading: var(--accent-color);
+	--f-color-button: var(--c-white);
+	--f-color-link: var(--accent-color);
+	--f-color-link-hover: var(--accent-color);
+
+	--f-decoration-link-hover: underline;
+
+	--f-weight-menu-item: 400;
+	--f-weight-menu-item-active: 500;
+
+	font-family: var(--ff-main);
+}
+
+.site-content {
+
+	& h1,
+	& h2,
+	& h3,
+	& h4,
+	& h5,
+	& h6 {
+		color: var(--c-accent);
+		font-family: var(--ff-condensed);
+		font-weight: var(--fw-medium);
+		margin-bottom: 1em;
+
+		& + p {
+			margin-top: 0;
+		}
+	}
+
+	& p {
+		color: var(--c-dark-grey);
+		line-height: 1.5;
+
+		& + p {
+			margin-top: 0;
+		}
+	}
+
+	& a {
+		color: var(--c-accent);
+	}
+}

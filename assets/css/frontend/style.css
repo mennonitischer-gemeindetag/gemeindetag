@@ -1,6 +1,6 @@
 /**
  * Gemeindetag
- * https://project-website.tld
+ * https://gemeindetag.mennoniten.de
  *
  */
 
@@ -15,16 +15,16 @@
 
 /* Layout - styles specific to layout */
 
-/* @import url("layout/index.css"); */
+@import url("layout/index.css");
 
 /* Templates */
 
-/* @import url("templates/index.css"); */
+@import url("templates/index.css");
 
 /* Components */
 
-/* @import url("components/index.css"); */
+@import url("components/index.css");
 
 /* Gutenberg blocks */
 
-/* @import url("../blocks/index.css"); */
+@import url("../blocks/index.css");

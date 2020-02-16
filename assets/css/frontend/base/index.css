@@ -1,2 +1,7 @@
+@import url("accessibility.css");
 @import url("prefers-reduced-motion.css");
 @import url("wordpress.css");
+
+* {
+	box-sizing: border-box;
+}

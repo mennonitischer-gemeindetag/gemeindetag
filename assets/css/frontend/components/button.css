@@ -1,0 +1,24 @@
+button,
+.button,
+.btn,
+input[type="submit"] {
+	-webkit-appearance: none;
+	background-color: var(--c-accent);
+	border: none;
+	border-radius: var(--border-radius);
+	color: var(--c-white);
+	line-height: 1.5;
+	padding: 1em 2em;
+	text-decoration: none;
+	transition: 150ms ease-in-out;
+	vertical-align: bottom;
+
+	& * {
+		color: var(--c-white);
+	}
+
+	&:hover {
+		background-color: var(--c-accent);
+		filter: brightness(95%);
+	}
+}

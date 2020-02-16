@@ -82,7 +82,7 @@ function blocks_categories( $categories, $post ) {
 		array(
 			array(
 				'slug'  => 'tenup-blocks',
-				'title' => __( 'Custom Blocks', 'tenup' ),
+				'title' => __( 'Custom Blocks', 'fabiankaegy' ),
 			),
 		)
 	);

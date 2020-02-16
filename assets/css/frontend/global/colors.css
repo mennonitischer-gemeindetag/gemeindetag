@@ -3,5 +3,28 @@
  */
 :root {
 	--c-black: #000;
+	--c-black-hover: #333;
+	--c-dark-grey: #5e5d5d;
 	--c-white: #fff;
+	--c-eggshell: #f8f8f8;
+	--c-eggshell-hover: #e0e0e0;
+	--c-accent: #97b226;
+	--c-primary: #41a62a;
+	--c-allgemein: var(--c-accent);
+	--c-news: #c4407d;
+	--c-mennoconnect: #803473;
+	--c-kinderprogramm: #dd4b99;
+	--c-teenprogramm: #af0e74;
+	--c-jugendprogramm: #803473;
+	--c-morgenlob: #be9e1b;
+	--c-bibelarbeiten: #5c4432;
+	--c-essen: #3a5c34;
+	--c-gottesdienst: #58b5dd;
+	--c-abendprogramm: #4a6aac;
+	--c-nachtgebet: #163760;
+	--c-workshops: #3c964e;
+	--c-ausfluege: #3c964e;
+	--c-anmeldung: #de7930;
+	--c-anmeldung-hover: #ce7230;
+	--c-warnung: #de4430;
 }

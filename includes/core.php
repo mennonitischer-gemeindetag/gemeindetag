@@ -54,11 +54,50 @@ function theme_setup() {
 			'gallery',
 		)
 	);
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support(
+		'html5',
+		[
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		]
+	);
+
+	add_theme_support(
+		'post-formats',
+		[
+			'aside',
+			'image',
+			'video',
+			'quote',
+			'link',
+			'gallery',
+			'audio',
+		]
+	);
+	add_theme_support( 'custom-logo', [ 'flex-width' => true ] );
+	add_theme_support(
+		'custom-header',
+		[
+			'video'          => true,
+			'height'         => '500',
+			'width'          => '1200',
+			'flex-height'    => true,
+			'flex-width'     => true,
+			'uploads'        => true,
+			'random-default' => false,
+			'header-text'    => false,
+		]
+	);
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'tenup' ),
+			'primary' => esc_html__( 'Primary Menu', 'fabiankaegy' ),
 		)
 	);
 }
@@ -77,6 +116,8 @@ function scripts() {
 		GEMEINDETAG_VERSION,
 		true
 	);
+
+	wp_enqueue_style( 'dashicons' );
 
 	if ( is_page_template( 'templates/page-styleguide.php' ) ) {
 		wp_enqueue_script(

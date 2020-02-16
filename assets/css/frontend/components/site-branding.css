@@ -1,0 +1,33 @@
+.site-branding {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	min-width: 40%;
+
+	& .logo {
+		margin-right: 1em;
+	}
+}
+
+.custom-logo {
+	height: auto;
+	width: 4em;
+}
+
+.site-title {
+	font-family: var(--ff-condensed);
+	font-weight: var(--fw-medium);
+	margin: 0;
+
+	& a {
+		color: var(--c-primary);
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	color: var(--c-dark-grey);
+	font-family: var(--ff-condensed);
+	margin: 0;
+}
