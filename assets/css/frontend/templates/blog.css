@@ -1,0 +1,7 @@
+body.blog,
+body.single-post {
+
+	& .site-content {
+		--c-accent: var(--c-news);
+	}
+}

@@ -12,6 +12,7 @@
 	--c-primary: #41a62a;
 	--c-allgemein: var(--c-accent);
 	--c-news: #c4407d;
+	--c-light-news: rgba(188, 3, 89, 0.05);
 	--c-mennoconnect: #803473;
 	--c-kinderprogramm: #dd4b99;
 	--c-teenprogramm: #af0e74;

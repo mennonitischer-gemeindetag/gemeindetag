@@ -22,4 +22,4 @@
 
 		<?php get_template_part( 'partials/header', 'global' ); ?>
 
-		<div id="content" class="site-content" role="main">
+		<main id="content" role="main">
