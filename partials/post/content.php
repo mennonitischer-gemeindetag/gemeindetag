@@ -42,7 +42,6 @@
 				?>
 					<span class="date"><?php the_date(); ?></span>
 					<?php
-					arvernus_edit_link();
 			};
 			echo '</div><!-- .post-meta -->';
 		};
@@ -74,10 +73,4 @@
 		);
 		?>
 	</div>
-
-	<?php
-	if ( is_single() ) {
-		arvernus_entry_footer();
-	}
-	?>
 </article>
