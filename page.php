@@ -7,6 +7,7 @@
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
+	<?php get_template_part( 'partials/header', 'image' ); ?>
 	<div id="page-<?php the_ID(); ?>" <?php post_class( 'site-content' ); ?>>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

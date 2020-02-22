@@ -6,6 +6,11 @@
  */
 
 get_header(); ?>
+	<?php
+	if ( is_single() ) {
+		get_template_part( 'partials/header', 'image' );
+	}
+	?>
 	<div id="page-<?php the_ID(); ?>" <?php post_class( 'site-content' ); ?>>
 		<?php if ( ! is_single() ) { ?>
 			<header class="page-header">
