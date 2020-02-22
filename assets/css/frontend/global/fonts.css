@@ -29,7 +29,13 @@
 	font-family: var(--ff-main);
 }
 
-.site-content {
+.site-content,
+.editor-styles-wrapper,
+.editor-post-title__block {
+
+	& * {
+		font-family: var(--ff-main);
+	}
 
 	& h1,
 	& h2,
@@ -41,6 +47,11 @@
 		font-family: var(--ff-condensed);
 		font-weight: var(--fw-medium);
 		margin-bottom: 1em;
+		margin-top: 2em;
+
+		&:first-child {
+			margin-top: 0;
+		}
 
 		& + p {
 			margin-top: 0;
@@ -59,4 +70,12 @@
 	& a {
 		color: var(--c-accent);
 	}
+}
+
+
+.editor-post-title__block .editor-post-title__input {
+	color: var(--c-accent);
+	font-family: var(--ff-condensed);
+	font-weight: var(--fw-medium);
+	text-align: center;
 }

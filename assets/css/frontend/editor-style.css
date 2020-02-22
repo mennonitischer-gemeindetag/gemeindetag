@@ -8,4 +8,5 @@
 
 /* Gutenberg blocks */
 
+@import url("./global/index.css");
 @import url("../blocks/index.css");
