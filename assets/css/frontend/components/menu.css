@@ -6,9 +6,13 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+
+	@media (--bp-medium) {
+		flex-direction: row;
+	}
 }
 
-.menu {
+.menu-toggle + .menu {
 	background: var(--c-eggshell);
 	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.18);
 	display: none;
@@ -22,7 +26,6 @@
 		background: unset;
 		box-shadow: none;
 		display: flex;
-		flex-direction: row;
 		justify-content: flex-end;
 		padding: 0;
 		position: relative;
