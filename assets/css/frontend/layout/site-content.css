@@ -3,6 +3,14 @@
 	& > * {
 		margin: 1em auto;
 		max-width: var(--w-standard);
+
+		&:first-child {
+			margin-top: 5rem;
+		}
+
+		&:last-child {
+			margin-bottom: 5rem;
+		}
 	}
 
 	& > .alignwide {
