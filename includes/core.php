@@ -97,8 +97,99 @@ function theme_setup() {
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'fabiankaegy' ),
+			'primary' => esc_html__( 'Primary Menu', 'gemeindetag' ),
+			'legal'   => esc_html__( 'Legal Menu', 'gemeindetag' ),
 		)
+	);
+
+	register_sidebar(
+		[
+			'name'          => __( 'Footer Left', 'gemeindetag' ),
+			'id'            => 'footer-widgets-left',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'gemeindetag' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		]
+	);
+
+	register_sidebar(
+		[
+			'name'          => __( 'Footer Right', 'gemeindetag' ),
+			'id'            => 'footer-widgets-right',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'gemeindetag' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		]
+	);
+
+	add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => 'Allgemein',
+				'slug'  => 'allgemein',
+				'color' => '#8BA54E',
+			],
+			[
+				'name'  => 'News',
+				'slug'  => 'news',
+				'color' => '#c4407d',
+			],
+			[
+				'name'  => 'Workshops / Ausflüge',
+				'slug'  => 'workshops-ausfluege',
+				'color' => '#3c964e',
+			],
+			[
+				'name'  => 'Hellblau',
+				'slug'  => 'light-blue',
+				'color' => '#1FA0D5',
+			],
+			[
+				'name'  => 'Blau',
+				'slug'  => 'blue',
+				'color' => '#435994',
+			],
+			[
+				'name'  => 'Dunkelblau',
+				'slug'  => 'dark-blue',
+				'color' => '#23284C',
+			],
+			[
+				'name'  => 'Dunkelgrün',
+				'slug'  => 'dark-green',
+				'color' => '#314D2D',
+			],
+			[
+				'name'  => 'Orange',
+				'slug'  => 'orange',
+				'color' => '#C7703F',
+			],
+			[
+				'name'  => 'Pink',
+				'slug'  => 'pink',
+				'color' => '#C62F7C',
+			],
+			[
+				'name'  => 'Rot',
+				'slug'  => 'red',
+				'color' => '#B7473C',
+			],
+			[
+				'name'  => 'Gelb',
+				'slug'  => 'yellow',
+				'color' => '#BA9F3B',
+			],
+			[
+				'name'  => 'Lila',
+				'slug'  => 'purple',
+				'color' => '#672C65',
+			],
+		]
 	);
 }
 
