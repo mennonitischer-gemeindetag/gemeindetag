@@ -3,4 +3,4 @@
  * used in editor only
  */
 
-// import './example-block-1';
+import './accent-color-setting';

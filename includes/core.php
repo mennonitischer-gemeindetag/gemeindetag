@@ -132,7 +132,7 @@ function theme_setup() {
 			[
 				'name'  => 'Allgemein',
 				'slug'  => 'allgemein',
-				'color' => '#8BA54E',
+				'color' => '#97b226',
 			],
 			[
 				'name'  => 'News',
@@ -142,7 +142,7 @@ function theme_setup() {
 			[
 				'name'  => 'Workshops / Ausflüge',
 				'slug'  => 'workshops-ausfluege',
-				'color' => '#3c964e',
+				'color' => '#41a62a',
 			],
 			[
 				'name'  => 'Hellblau',
@@ -167,7 +167,7 @@ function theme_setup() {
 			[
 				'name'  => 'Orange',
 				'slug'  => 'orange',
-				'color' => '#C7703F',
+				'color' => '#de7930',
 			],
 			[
 				'name'  => 'Pink',
@@ -189,6 +189,16 @@ function theme_setup() {
 				'slug'  => 'purple',
 				'color' => '#672C65',
 			],
+		]
+	);
+
+	register_meta(
+		'post',
+		'accentColor',
+		[
+			'type'         => 'string',
+			'single'       => true,
+			'show_in_rest' => true,
 		]
 	);
 }
@@ -235,6 +245,19 @@ function styles() {
 		[],
 		GEMEINDETAG_VERSION
 	);
+
+	global $post;
+
+	$accent_color = get_post_meta( $post->ID, 'accentColor', true );
+
+	$custom_css = '';
+	if ( isset( $accent_color ) && ! ( '' === $accent_color ) ) {
+		$custom_css = "
+			.site-content {
+				--c-accent: {$accent_color};
+			}";
+	}
+	wp_add_inline_style( 'styles', $custom_css );
 
 	if ( is_page_template( 'templates/page-styleguide.php' ) ) {
 		wp_enqueue_style(
