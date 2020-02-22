@@ -6,7 +6,12 @@ body.blog .site-content > .post {
 	@media (--bp-medium) {
 		flex-direction: row-reverse;
 	}
-	margin-bottom: 30px;
+	margin-top: 2rem;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+
 	position: relative;
 
 	& .icon {
@@ -53,8 +58,13 @@ body.blog .site-content > .post {
 			width: 100%;
 		}
 
-		&.post-title {
+		& .post-title {
 			margin-top: 0;
+		}
+
+		& .button {
+			display: inline-block;
+			margin-top: 1em;
 		}
 	}
 

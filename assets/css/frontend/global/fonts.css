@@ -26,7 +26,37 @@
 	--f-weight-menu-item: 400;
 	--f-weight-menu-item-active: 500;
 
+	--fs-small: 0.75em;
+	--fs-regular: 1em;
+	--fs-medium: 1.5em;
+	--fs-large: 1.75em;
+	--fs-xlarge: 2em;
+
 	font-family: var(--ff-main);
+}
+
+h1 {
+	font-size: var(--fs-xlarge);
+}
+
+h2 {
+	font-size: var(--fs-large);
+}
+
+h3 {
+	font-size: var(--fs-medium);
+}
+
+h4 {
+	font-size: var(--fs-medium);
+}
+
+h5 {
+	font-size: var(--fs-medium);
+}
+
+h6 {
+	font-size: var(--fs-medium);
 }
 
 .site-content,
@@ -48,6 +78,14 @@
 		font-weight: var(--fw-medium);
 		margin-bottom: 1em;
 		margin-top: 2em;
+
+		& a {
+			color: var(--c-accent);
+			font-family: var(--ff-condensed);
+			font-weight: var(--fw-medium);
+			margin-bottom: 1em;
+			text-decoration: none;
+		}
 
 		&:first-child {
 			margin-top: 0;

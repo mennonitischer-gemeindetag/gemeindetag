@@ -1,0 +1,10 @@
+.site-image-header {
+
+	& img {
+		height: 30vh;
+		max-height: 400px;
+		min-height: 150px;
+		object-fit: cover;
+		width: 100%;
+	}
+}

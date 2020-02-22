@@ -1,0 +1,6 @@
+.wp-block-button {
+
+	& a {
+		color: inherit;
+	}
+}

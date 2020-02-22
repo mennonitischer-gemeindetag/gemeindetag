@@ -1,6 +1,8 @@
 button,
 .button,
+a.button,
 .btn,
+a.btn,
 input[type="submit"] {
 	-webkit-appearance: none;
 	background-color: var(--c-accent);
@@ -13,7 +15,8 @@ input[type="submit"] {
 	transition: 150ms ease-in-out;
 	vertical-align: bottom;
 
-	& * {
+	& *,
+	& a {
 		color: var(--c-white);
 	}
 
