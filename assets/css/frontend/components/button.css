@@ -9,6 +9,7 @@ input[type="submit"] {
 	border: none;
 	border-radius: var(--border-radius);
 	color: var(--c-white);
+	display: inline-block;
 	line-height: 1.5;
 	padding: 1em 2em;
 	text-decoration: none;
@@ -24,4 +25,9 @@ input[type="submit"] {
 		background-color: var(--c-accent);
 		filter: brightness(95%);
 	}
+}
+
+
+.back-to-archive {
+	margin-top: 2rem;
 }
