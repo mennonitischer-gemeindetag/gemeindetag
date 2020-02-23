@@ -8,7 +8,7 @@
 ?>
 <footer class="site-footer" role="contentinfo" id="footer">
 		<div class="site-footer-middle">
-			<aside class="widget-area" role="complementary">
+			<aside class="widget-area container" role="complementary">
 				<?php
 				if ( is_active_sidebar( 'footer-widgets-left' ) ) {
 					?>
@@ -17,10 +17,10 @@
 					</div>
 					<?php
 				}
-				if ( is_active_sidebar( 'footer-widges-right' ) ) {
+				if ( is_active_sidebar( 'footer-widgets-right' ) ) {
 					?>
 					<div class="widget-column footer-widgets-right">
-						<?php dynamic_sidebar( 'footer-widges-right' ); ?>
+						<?php dynamic_sidebar( 'footer-widgets-right' ); ?>
 					</div>
 					<?php
 				}
