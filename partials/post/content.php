@@ -56,21 +56,16 @@
 					get_the_title()
 				)
 			);
+
+			?>
+			<a class="back-to-archive button" href="<?php echo esc_html( get_post_type_archive_link( get_post_type() ) ); ?>">Zur Übersicht</a>
+			<?php
 		} else {
 			the_excerpt();
 			?>
 			<a class="read-more button" href="<?php the_permalink(); ?>">Weiter Lesen</a>
 			<?php
 		}
-
-		wp_link_pages(
-			[
-				'before'      => '<div class="page-links">' . __( 'Pages:', 'arvernus' ),
-				'after'       => '</div>',
-				'link_before' => '<span class="page-number">',
-				'link_after'  => '</span>',
-			]
-		);
 		?>
 	</div>
 </article>
