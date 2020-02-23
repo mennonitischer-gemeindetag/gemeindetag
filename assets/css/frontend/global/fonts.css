@@ -61,7 +61,8 @@ h6 {
 
 .site-content,
 .editor-styles-wrapper,
-.editor-post-title__block {
+.editor-post-title__block,
+.site-footer {
 
 	& * {
 		font-family: var(--ff-main);

@@ -9,7 +9,29 @@
 }
 
 .site-footer-middle {
-	height: 300px;
+
+	& .widget-area {
+		display: flex;
+		flex-direction: column;
+		max-width: var(--w-standard);
+		padding: 2rem 0;
+
+		@media (--bp-medium) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		& .widget-column {
+
+			@media (--bp-medium) {
+				width: 50%;
+			}
+
+			& .widget {
+				margin: 1rem;
+			}
+		}
+	}
 }
 
 .site-footer-bottom {
