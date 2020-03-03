@@ -12,7 +12,6 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
@@ -52,7 +51,7 @@
 			/* translators: %s: Name of current post */
 			the_content(
 				sprintf(
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'arvernus' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'gemeindetag' ),
 					get_the_title()
 				)
 			);
