@@ -50,7 +50,16 @@ function blocks_editor_scripts() {
 	wp_enqueue_script(
 		'blocks-editor',
 		GEMEINDETAG_TEMPLATE_URL . '/dist/js/blocks-editor.js',
-		[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
+		[
+			'wp-i18n',
+			'wp-element',
+			'wp-block-editor',
+			'wp-blocks',
+			'wp-components',
+			'wp-plugins',
+			'wp-edit-post',
+			'wp-data',
+		],
 		GEMEINDETAG_VERSION,
 		false
 	);
