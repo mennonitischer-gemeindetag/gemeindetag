@@ -16,10 +16,10 @@
 	--f-weight-heading: normal;
 
 	--f-color: lighten(#444, 10%);
-	--f-color-heading: var(--accent-color);
+	--f-color-heading: var(--c-accent);
 	--f-color-button: var(--c-white);
-	--f-color-link: var(--accent-color);
-	--f-color-link-hover: var(--accent-color);
+	--f-color-link: var(--c-accent);
+	--f-color-link-hover: var(--c-accent);
 
 	--f-decoration-link-hover: underline;
 
