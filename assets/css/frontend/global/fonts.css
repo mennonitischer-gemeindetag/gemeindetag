@@ -97,9 +97,14 @@ h6 {
 		}
 	}
 
+	& p,
+	& a,
+	& ul {
+		line-height: 1.5;
+	}
+
 	& p {
 		color: var(--c-dark-grey);
-		line-height: 1.5;
 
 		& + p {
 			margin-top: 0;
