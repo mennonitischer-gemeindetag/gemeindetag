@@ -2,8 +2,6 @@
  * Gutenberg block-specific JavaScript:
  * used on front-end and/or in editor
  */
-
-
 const { __ } = wp.i18n;
 const { registerPlugin } = wp.plugins;
 const { PluginDocumentSettingPanel } = wp.editPost;
@@ -16,7 +14,7 @@ const { PanelColorSettings } = wp.blockEditor;
  */
 const CustomAccentColorSideBarPanel = () => {
 
-	const { accentColor } = useSelect( ( select ) =>
+	const { accentColor } = useSelect( select =>
 		select( 'core/editor' ).getEditedPostAttribute( 'meta' )
 	);
 
@@ -24,7 +22,7 @@ const CustomAccentColorSideBarPanel = () => {
 	 * setAccentColor
 	 * @param {String} color
 	 */
-	const setAccentColor = ( color ) => {
+	const setAccentColor = color => {
 		// tell editor about change so it can handle setting it uppon next save
 		dispatch( 'core/editor' ).editPost( {
 			meta: { accentColor: color },
@@ -40,10 +38,10 @@ const CustomAccentColorSideBarPanel = () => {
 		<PluginDocumentSettingPanel
 			icon="admin-appearance"
 			name="custom-accent-color-panel"
-			title={ __( 'Accent Color', 'gemeindetag' )}
+			title={ __( 'Accent Color', 'gemeindetag' ) }
 		>
 			<PanelColorSettings
-				title={ __( 'Color Settings' ) }
+				title={ __( 'Color Settings', 'gemeindetag' ) }
 				colorSettings={ [
 					{
 						value: accentColor,
@@ -55,4 +53,5 @@ const CustomAccentColorSideBarPanel = () => {
 		</PluginDocumentSettingPanel>
 	);
 };
-registerPlugin( 'custom-accent-color-panel', {render: CustomAccentColorSideBarPanel } );
+
+registerPlugin( 'custom-accent-color-panel', { render: CustomAccentColorSideBarPanel } );
