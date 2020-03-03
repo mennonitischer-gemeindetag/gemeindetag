@@ -13,6 +13,22 @@ get_header(); ?>
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header>
 		<?php the_content(); ?>
+		<?php
+
+		$children = wp_list_pages(
+			[
+				'child_of' => $post->ID,
+				'echo'     => '0',
+				'title_li' => '',
+			]
+		);
+
+		if ( $children ) {
+			?>
+			<ul>
+				<?php echo wp_kses_post( $children ); ?>
+			</ul>
+		<?php }; ?>
 	</div>
 <?php endwhile; ?>
 
