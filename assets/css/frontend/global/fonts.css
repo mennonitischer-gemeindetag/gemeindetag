@@ -65,6 +65,7 @@ h6 {
 .site-footer {
 
 	& * {
+		color: var(--c-dark-grey);
 		font-family: var(--ff-main);
 	}
 
@@ -103,12 +104,8 @@ h6 {
 		line-height: 1.5;
 	}
 
-	& p {
-		color: var(--c-dark-grey);
-
-		& + p {
-			margin-top: 0;
-		}
+	& p + p {
+		margin-top: 0;
 	}
 
 	& a {
