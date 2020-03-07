@@ -18,6 +18,8 @@ const CustomAccentColorSideBarPanel = () => {
 		select( 'core/editor' ).getEditedPostAttribute( 'meta' )
 	);
 
+	const postType = useSelect( select => select( 'core/editor' ).getCurrentPostType() );
+
 	/**
 	 * setAccentColor
 	 * @param {String} color
@@ -35,22 +37,23 @@ const CustomAccentColorSideBarPanel = () => {
 	}, [ accentColor ] );
 
 	return (
-		<PluginDocumentSettingPanel
-			icon="admin-appearance"
-			name="custom-accent-color-panel"
-			title={ __( 'Accent Color', 'gemeindetag' ) }
-		>
-			<PanelColorSettings
-				title={ __( 'Color Settings', 'gemeindetag' ) }
-				colorSettings={ [
-					{
-						value: accentColor,
-						onChange: setAccentColor,
-						label: __( 'Site Accent Color', 'gemeindetag' ),
-					},
-				] }
-			/>
-		</PluginDocumentSettingPanel>
+		'page' === postType ? (
+			<PluginDocumentSettingPanel
+				icon="admin-appearance"
+				name="custom-accent-color-panel"
+				title={ __( 'Accent Color', 'gemeindetag' ) }
+			>
+				<PanelColorSettings
+					title={ __( 'Color Settings', 'gemeindetag' ) }
+					colorSettings={ [
+						{
+							value: accentColor,
+							onChange: setAccentColor,
+							label: __( 'Site Accent Color', 'gemeindetag' ),
+						},
+					] }
+				/>
+			</PluginDocumentSettingPanel> ) : null
 	);
 };
 
