@@ -1,7 +1,7 @@
 button,
+.btn,
 .button,
 a.button,
-.btn,
 a.btn,
 input[type="submit"] {
 	-webkit-appearance: none;

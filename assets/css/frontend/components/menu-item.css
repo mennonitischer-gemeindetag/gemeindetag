@@ -1,62 +1,39 @@
-.menu-item > a {
-	color: var(--c-black);
-	display: block;
-	padding: 1em;
-	text-decoration: none;
+.menu-item {
 
-	&:hover,
-	&:focus,
-	&:focus-within {
-		color: var(--c-black-hover);
-	}
-}
-
-.menu-item-has-children {
-	position: relative;
-
+	/* regular menu item */
 	& > a {
-		padding-right: 2.5em;
-
-		&::after {
-			content: "\f347";
-			font-family: var(--ff-dashicons);
-			position: absolute;
-			right: 1em;
-			top: 1em;
-		}
-	}
-}
-
-.special > a {
-	background: var(--c-anmeldung);
-	border-radius: var(--border-radius);
-	color: var(--c-white);
-
-	&:hover,
-	&:focus,
-	&:focus-within {
-		background: var(--c-anmeldung-hover);
-		color: var(--c-white);
-	}
-}
-
-.sub-menu .menu-item {
-
-	& a {
-		background: var(--c-white);
-		border-bottom: 1px dotted;
+		color: var(--c-black);
+		display: block;
+		padding: 1em;
+		text-decoration: none;
 
 		&:hover,
 		&:focus,
 		&:focus-within {
-			background: var(--c-eggshell-hover);
+			color: var(--c-black-hover);
 		}
 	}
 
-	@media (--bp-medium) {
+	/* special menu item */
+	&.special > a {
+		background: var(--c-anmeldung);
+		border-radius: var(--border-radius);
+		color: var(--c-white);
 
-		& a {
-			background: var(--c-eggshell);
+		&:hover,
+		&:focus,
+		&:focus-within {
+			background: var(--c-anmeldung-hover);
+			color: var(--c-white);
+		}
+	}
+
+	/* menu item inside submenu */
+	@nest .sub-menu & {
+
+		& > a {
+			background: var(--c-white);
+			border-bottom: 1px dotted;
 
 			&:hover,
 			&:focus,
@@ -64,14 +41,28 @@
 				background: var(--c-eggshell-hover);
 			}
 		}
-	}
 
-	&:first-child a {
-		border-radius: var(--border-radius) var(--border-radius) 0 0;
-	}
+		@media (--bp-medium) {
 
-	&:last-child a {
-		border-bottom: none;
-		border-radius: 0 0 var(--border-radius) var(--border-radius);
+			& > a {
+				background: var(--c-eggshell);
+
+				&:hover,
+				&:focus,
+				&:focus-within {
+					background: var(--c-eggshell-hover);
+				}
+			}
+		}
+
+		&:first-child > a {
+			border-radius: var(--border-radius) var(--border-radius) 0 0;
+		}
+
+		&:last-child > a {
+			border-bottom: none;
+			border-radius: 0 0 var(--border-radius) var(--border-radius);
+		}
+
 	}
 }

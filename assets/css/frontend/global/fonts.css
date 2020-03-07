@@ -69,6 +69,21 @@ h6 {
 		font-family: var(--ff-main);
 	}
 
+	& a {
+		color: var(--c-accent);
+	}
+
+	& a,
+	& p,
+	& ul {
+		line-height: 1.5;
+	}
+
+	& p + p {
+		margin-top: 0;
+	}
+
+
 	& h1,
 	& h2,
 	& h3,
@@ -98,19 +113,6 @@ h6 {
 		}
 	}
 
-	& p,
-	& a,
-	& ul {
-		line-height: 1.5;
-	}
-
-	& p + p {
-		margin-top: 0;
-	}
-
-	& a {
-		color: var(--c-accent);
-	}
 }
 
 
