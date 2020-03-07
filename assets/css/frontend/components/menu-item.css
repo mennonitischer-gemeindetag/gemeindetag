@@ -64,5 +64,10 @@
 			border-radius: 0 0 var(--border-radius) var(--border-radius);
 		}
 
+		&:only-child > a {
+			border-bottom: none;
+			border-radius: var(--border-radius);
+		}
+
 	}
 }
