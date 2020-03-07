@@ -47,7 +47,7 @@
 		left: 50%;
 		margin-left: 0;
 		margin-right: 0;
-		min-width: 150px;
+		min-width: 200px;
 		position: absolute;
 		transform: translateX(-50%);
 		z-index: 10;
