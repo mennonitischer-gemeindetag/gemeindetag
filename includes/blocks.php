@@ -59,6 +59,7 @@ function blocks_editor_scripts() {
 			'wp-plugins',
 			'wp-edit-post',
 			'wp-data',
+			'wp-dom-ready',
 		],
 		GEMEINDETAG_VERSION,
 		false
