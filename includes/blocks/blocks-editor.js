@@ -4,3 +4,4 @@
  */
 
 import './accent-color-setting';
+import './unregister-block-styles';

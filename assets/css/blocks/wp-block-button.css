@@ -1,6 +1,35 @@
 .wp-block-button {
 
-	& a {
-		color: inherit;
+	& .wp-block-button__link {
+		-webkit-appearance: none;
+		background-color: var(--c-accent);
+		border: none;
+		border-radius: var(--border-radius);
+		color: var(--c-white);
+		display: inline-block;
+		font-size: 1em;
+		line-height: 1.5;
+		padding: 1em 2em;
+		text-decoration: none;
+		transition: 150ms ease-in-out;
+		vertical-align: bottom;
+
+		&:hover {
+			background-color: var(--c-accent);
+			color: var(--c-white);
+			filter: brightness(95%);
+		}
+
+		@nest .wp-admin & {
+			display: block;
+		}
+	}
+}
+
+.wp-block-buttons {
+
+	& .wp-block-button {
+		margin: 0;
+		margin-right: 1rem;
 	}
 }
