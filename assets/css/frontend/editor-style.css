@@ -10,3 +10,30 @@
 
 @import url("./global/index.css");
 @import url("../blocks/index.css");
+
+.wp-block {
+	max-width: 750px;
+}
+
+.wp-block[data-align="wide"] {
+	max-width: 950px;
+}
+
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+.post-type-kinderprogramm,
+.post-type-workshops,
+.post-type-ausfluege,
+.post-type-tickets,
+.post-type-essen {
+
+	& .wp-block {
+		max-width: 1000px;
+	}
+
+	& .wp-block[data-align="wide"] {
+		max-width: 1400px;
+	}
+}
