@@ -31,7 +31,7 @@
 		}
 
 		& + .alignfull {
-			margin-top: -var(--s-xxlarge);
+			margin-top: calc(var(--s-xxlarge) * -1);
 		}
 	}
 }
