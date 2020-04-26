@@ -14,11 +14,16 @@ const { PanelColorSettings } = wp.blockEditor;
  */
 const CustomAccentColorSideBarPanel = () => {
 
+	const postType = useSelect( select => select( 'core/editor' ).getCurrentPostType() );
+
+	// return early if the current post type is not equal to post
+	if ( ! 'page' === postType ) {
+		return;
+	}
+
 	const { accentColor } = useSelect( select =>
 		select( 'core/editor' ).getEditedPostAttribute( 'meta' )
 	);
-
-	const postType = useSelect( select => select( 'core/editor' ).getCurrentPostType() );
 
 	/**
 	 * setAccentColor
@@ -37,23 +42,22 @@ const CustomAccentColorSideBarPanel = () => {
 	}, [ accentColor ] );
 
 	return (
-		'page' === postType ? (
-			<PluginDocumentSettingPanel
-				icon="admin-appearance"
-				name="custom-accent-color-panel"
-				title={ __( 'Accent Color', 'gemeindetag' ) }
-			>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'gemeindetag' ) }
-					colorSettings={ [
-						{
-							value: accentColor,
-							onChange: setAccentColor,
-							label: __( 'Site Accent Color', 'gemeindetag' ),
-						},
-					] }
-				/>
-			</PluginDocumentSettingPanel> ) : null
+		<PluginDocumentSettingPanel
+			icon="admin-appearance"
+			name="custom-accent-color-panel"
+			title={ __( 'Accent Color', 'gemeindetag' ) }
+		>
+			<PanelColorSettings
+				title={ __( 'Color Settings', 'gemeindetag' ) }
+				colorSettings={ [
+					{
+						value: accentColor,
+						onChange: setAccentColor,
+						label: __( 'Site Accent Color', 'gemeindetag' ),
+					},
+				] }
+			/>
+		</PluginDocumentSettingPanel>
 	);
 };
 
