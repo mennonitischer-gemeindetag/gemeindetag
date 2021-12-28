@@ -248,7 +248,7 @@ function styles() {
 
 	global $post;
 
-	$accent_color = get_post_meta( $post->ID, 'accentColor', true );
+	$accent_color = get_post_meta( get_the_ID(), 'accentColor', true );
 
 	$custom_css = '';
 	if ( isset( $accent_color ) && ! ( '' === $accent_color ) ) {
