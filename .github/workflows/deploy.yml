@@ -40,4 +40,13 @@ jobs:
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           local_dir: './'
           remote_dir: '~/html/wordpress/wp-content/themes/gemeindetag/'
+          
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v2.1.6
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_IP }}
+          REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+          TARGET: '~/html/wordpress/wp-content/themes/gemeindetag/'
+          EXCLUDE: node_modules, .git
 
