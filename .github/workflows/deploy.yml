@@ -23,11 +23,11 @@ jobs:
         run: npm run build
 
       - name: ssh deploy
-        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        uses: hengkx/ssh-deploy@v1.0.1
         with:
-          host: ${{ secrets.SERVER_IP }}
-          user: ${{ secrets.SERVER_USERNAME }}
-          pass: ${{ secrets.SERVER_SSH_PASSWORD }}
-          scp: |
-            './' => /html/wordpress/wp-content/themes/gemeindetag/
-          
+          HOST: ${{ secrets.SERVER_IP }}
+          USERNAME: ${{ secrets.SERVER_USERNAME }}
+          PASSWORD: ${{ secrets.SERVER_SSH_PASSWORD }}
+          SOURCE: .
+          TARGET: /html/wordpress/wp-content/themes/gemeindetag/
+        
