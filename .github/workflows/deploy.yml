@@ -29,5 +29,5 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           pass: ${{ secrets.SERVER_SSH_PASSWORD }}
           scp: |
-            './**/*' => /html/wordpress/wp-content/themes/gemeindetag/
+            './' => /html/wordpress/wp-content/themes/gemeindetag/
           
