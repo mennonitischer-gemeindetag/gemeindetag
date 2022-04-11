@@ -25,6 +25,7 @@ function setup() {
 	add_action( 'init', $n( 'register_theme_blocks' ) );
 	add_action( 'init', $n( 'register_theme_block_patterns' ) );
 	add_action( 'init', $n( 'register_block_pattern_categories' ) );
+	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 }
 
 /**
