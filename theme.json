@@ -1,200 +1,201 @@
 {
-  "version": 2,
-  "settings": {
-      "color": {
-          "custom": true,
-          "customGradient": true,
-          "defaultPalette": false,
-          "defaultGradients": false,
-          "gradients": [],
-          "defaultDuotone": false,
-          "duotone": [],
-          "palette": [
-              {
-                  "slug": "allgemein",
-                  "name": "Allgemein",
-                  "color": "#97b226"
-              },
-              {
-                  "slug": "news",
-                  "name": "News",
-                  "color": "#c4407d"
-              },
-              {
-                  "slug": "workshops-ausfluege",
-                  "name": "Workshops / Ausflüge",
-                  "color": "#41a62a"
-              },
-              {
-                  "slug": "light-blue",
-                  "name": "Hellblau",
-                  "color": "#1FA0D5"
-              },
-              {
-                  "slug": "blue",
-                  "name": "Blau",
-                  "color": "#435994"
-              },
-              {
-                  "slug": "dark-blue",
-                  "name": "Dunkelblau",
-                  "color": "#23284C"
-              },
-              {
-                  "slug": "dark-green",
-                  "name": "Dunkelgrün",
-                  "color": "#314D2D"
-              },
-              {
-                  "slug": "orange",
-                  "name": "Orange",
-                  "color": "#de7930"
-              },
-              {
-                  "slug": "pink",
-                  "name": "Pink",
-                  "color": "#C62F7C"
-              },
-              {
-                  "slug": "red",
-                  "name": "Rot",
-                  "color": "#B7473C"
-              },
-              {
-                  "slug": "yellow",
-                  "name": "Gelb",
-                  "color": "#BA9F3B"
-              },
-              {
-                  "slug": "purple",
-                  "name": "Lila",
-                  "color": "#672C65"
-              },
-              {
-                  "slug": "dark-grey",
-                  "name": "Dunkelgrau",
-                  "color": "#5e5d5d"
-              }
-          ],
-          "link": true
-      },
-      "typography": {
-          "customFontSize": true,
-          "lineHeight": true,
-          "fontFamilies": [
-              {
-                  "slug": "sans",
-                  "name": "Sans",
-                  "fontFamily": "\"myriad-pro\",sans-serif"
-              },
-              {
-                  "slug": "sans-condensed",
-                  "name": "Sans Condensed",
-                  "fontFamily": "\"myriad-pro-condensed\",sans-serif"
-              }
-          ]
-      },
-      "spacing": {
-          "padding": true,
-          "blockGap": true,
-          "margin": true
-      },
-      "layout": {
-          "contentSize": "min(650px, 90%)",
-          "wideSize": "min(800px, 95%)"
-      },
-      "border": {
-          "color": true,
-          "radius": true,
-          "style": true,
-          "width": true
-      }
-  },
-  "styles": {
-      "typography": {
-          "fontFamily": "var:preset|font-family|sans",
-          "lineHeight": "1.5"
-      },
-      "blocks": {
-          "core/heading": {
-              "elements": {
-                  "h1": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  },
-                  "h2": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  },
-                  "h3": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  },
-                  "h4": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  },
-                  "h5": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  },
-                  "h6": {
-                      "typography": {
-                          "fontFamily": "var(--wp--preset--font-family--sans)",
-                          "fontWeight": "400"
-                      }
-                  }
-              },
-              "typography": {
-                  "fontFamily": "var(--wp--preset--font-family--sans)",
-                  "fontWeight": "400"
-              }
-          },
-          "core/site-title": {
-              "typography": {
-                  "fontWeight": "400",
-                  "lineHeight": "1"
-              },
-              "elements": {
-                  "h1": {
-                      "typography": {
-                          "fontWeight": "400"
-                      }
-                  },
-                  "link": {
-                      "typography": {
-                          "lineHeight": "1",
-                          "fontWeight": "400",
-                          "fontFamily": "var(--wp--preset--font-family--sans-condensed)",
-                          "textDecoration": "none"
-                      }
-                  }
-              }
-          }
-      },
-      "elements": {
-          "link": {
-              "typography": {
-                  "fontFamily": "\"myriad-pro\",sans-serif",
-                  "lineHeight": "1.6"
-              },
-              "color": {
-                  "text": "var:preset|color|allgemein"
-              }
-          }
-      },
-      "color": {
-          "text": "var:preset|color|dark-grey"
-      }
-  }
+    "version": 2,
+    "settings": {
+        "color": {
+            "custom": true,
+            "customGradient": true,
+            "defaultPalette": false,
+            "defaultGradients": false,
+            "gradients": [],
+            "defaultDuotone": false,
+            "duotone": [],
+            "palette": [
+                {
+                    "slug": "allgemein",
+                    "name": "Allgemein",
+                    "color": "#97b226"
+                },
+                {
+                    "slug": "news",
+                    "name": "News",
+                    "color": "#c4407d"
+                },
+                {
+                    "slug": "workshops-ausfluege",
+                    "name": "Workshops / Ausflüge",
+                    "color": "#41a62a"
+                },
+                {
+                    "slug": "light-blue",
+                    "name": "Hellblau",
+                    "color": "#1FA0D5"
+                },
+                {
+                    "slug": "blue",
+                    "name": "Blau",
+                    "color": "#435994"
+                },
+                {
+                    "slug": "dark-blue",
+                    "name": "Dunkelblau",
+                    "color": "#23284C"
+                },
+                {
+                    "slug": "dark-green",
+                    "name": "Dunkelgrün",
+                    "color": "#314D2D"
+                },
+                {
+                    "slug": "orange",
+                    "name": "Orange",
+                    "color": "#de7930"
+                },
+                {
+                    "slug": "pink",
+                    "name": "Pink",
+                    "color": "#C62F7C"
+                },
+                {
+                    "slug": "red",
+                    "name": "Rot",
+                    "color": "#B7473C"
+                },
+                {
+                    "slug": "yellow",
+                    "name": "Gelb",
+                    "color": "#BA9F3B"
+                },
+                {
+                    "slug": "purple",
+                    "name": "Lila",
+                    "color": "#672C65"
+                },
+                {
+                    "slug": "dark-grey",
+                    "name": "Dunkelgrau",
+                    "color": "#5e5d5d"
+                }
+            ],
+            "link": true
+        },
+        "typography": {
+            "customFontSize": true,
+            "lineHeight": true,
+            "fontFamilies": [
+                {
+                    "slug": "sans",
+                    "name": "Sans",
+                    "fontFamily": "\"myriad-pro\",sans-serif"
+                },
+                {
+                    "slug": "sans-condensed",
+                    "name": "Sans Condensed",
+                    "fontFamily": "\"myriad-pro-condensed\",sans-serif"
+                }
+            ]
+        },
+        "spacing": {
+            "units": false,
+            "padding": true,
+            "blockGap": true,
+            "margin": true
+        },
+        "layout": {
+            "contentSize": "min(650px, 90%)",
+            "wideSize": "min(800px, 95%)"
+        },
+        "border": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true
+        }
+    },
+    "styles": {
+        "typography": {
+            "fontFamily": "var:preset|font-family|sans",
+            "lineHeight": "1.5"
+        },
+        "blocks": {
+            "core/heading": {
+                "elements": {
+                    "h1": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    },
+                    "h2": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    },
+                    "h3": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    },
+                    "h4": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    },
+                    "h5": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    },
+                    "h6": {
+                        "typography": {
+                            "fontFamily": "var(--wp--preset--font-family--sans)",
+                            "fontWeight": "400"
+                        }
+                    }
+                },
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--sans)",
+                    "fontWeight": "400"
+                }
+            },
+            "core/site-title": {
+                "typography": {
+                    "fontWeight": "400",
+                    "lineHeight": "1"
+                },
+                "elements": {
+                    "h1": {
+                        "typography": {
+                            "fontWeight": "400"
+                        }
+                    },
+                    "link": {
+                        "typography": {
+                            "lineHeight": "1",
+                            "fontWeight": "400",
+                            "fontFamily": "var(--wp--preset--font-family--sans-condensed)",
+                            "textDecoration": "none"
+                        }
+                    }
+                }
+            }
+        },
+        "elements": {
+            "link": {
+                "typography": {
+                    "fontFamily": "\"myriad-pro\",sans-serif",
+                    "lineHeight": "1.6"
+                },
+                "color": {
+                    "text": "var:preset|color|allgemein"
+                }
+            }
+        },
+        "color": {
+            "text": "var:preset|color|dark-grey"
+        }
+    }
 }
