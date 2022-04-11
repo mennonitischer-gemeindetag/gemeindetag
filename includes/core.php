@@ -17,14 +17,14 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	add_action( 'after_setup_theme', $n( 'i18n' ) );
+	// add_action( 'after_setup_theme', $n( 'i18n' ) );
 	add_action( 'after_setup_theme', $n( 'theme_setup' ) );
-	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
-	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
-	add_action( 'wp_head', $n( 'js_detection' ), 0 );
-	add_action( 'wp_head', $n( 'add_manifest' ), 10 );
+	// add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
+	add_action( 'init', $n( 'styles' ) );
+	// add_action( 'wp_head', $n( 'js_detection' ), 0 );
+	// add_action( 'wp_head', $n( 'add_manifest' ), 10 );
 
-	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
+	// add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
 }
 
 /**
@@ -126,72 +126,6 @@ function theme_setup() {
 		]
 	);
 
-	add_theme_support(
-		'editor-color-palette',
-		[
-			[
-				'name'  => 'Allgemein',
-				'slug'  => 'allgemein',
-				'color' => '#97b226',
-			],
-			[
-				'name'  => 'News',
-				'slug'  => 'news',
-				'color' => '#c4407d',
-			],
-			[
-				'name'  => 'Workshops / Ausflüge',
-				'slug'  => 'workshops-ausfluege',
-				'color' => '#41a62a',
-			],
-			[
-				'name'  => 'Hellblau',
-				'slug'  => 'light-blue',
-				'color' => '#1FA0D5',
-			],
-			[
-				'name'  => 'Blau',
-				'slug'  => 'blue',
-				'color' => '#435994',
-			],
-			[
-				'name'  => 'Dunkelblau',
-				'slug'  => 'dark-blue',
-				'color' => '#23284C',
-			],
-			[
-				'name'  => 'Dunkelgrün',
-				'slug'  => 'dark-green',
-				'color' => '#314D2D',
-			],
-			[
-				'name'  => 'Orange',
-				'slug'  => 'orange',
-				'color' => '#de7930',
-			],
-			[
-				'name'  => 'Pink',
-				'slug'  => 'pink',
-				'color' => '#C62F7C',
-			],
-			[
-				'name'  => 'Rot',
-				'slug'  => 'red',
-				'color' => '#B7473C',
-			],
-			[
-				'name'  => 'Gelb',
-				'slug'  => 'yellow',
-				'color' => '#BA9F3B',
-			],
-			[
-				'name'  => 'Lila',
-				'slug'  => 'purple',
-				'color' => '#672C65',
-			],
-		]
-	);
-
 	register_meta(
 		'post',
 		'accentColor',
@@ -219,16 +153,6 @@ function scripts() {
 	);
 
 	wp_enqueue_style( 'dashicons' );
-
-	if ( is_page_template( 'templates/page-styleguide.php' ) ) {
-		wp_enqueue_script(
-			'styleguide',
-			GEMEINDETAG_TEMPLATE_URL . '/dist/js/styleguide.js',
-			[],
-			GEMEINDETAG_VERSION,
-			true
-		);
-	}
 
 }
 
@@ -259,14 +183,7 @@ function styles() {
 	}
 	wp_add_inline_style( 'styles', $custom_css );
 
-	if ( is_page_template( 'templates/page-styleguide.php' ) ) {
-		wp_enqueue_style(
-			'styleguide',
-			GEMEINDETAG_TEMPLATE_URL . '/dist/css/styleguide-style.css',
-			[],
-			GEMEINDETAG_VERSION
-		);
-	}
+	add_editor_style( '/dist/css/style.css' );
 }
 
 /**

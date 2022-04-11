@@ -3,5 +3,5 @@
  * used in editor only
  */
 
-import './accent-color-setting';
+// import './accent-color-setting';
 import './unregister-block-styles';

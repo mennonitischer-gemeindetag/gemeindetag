@@ -17,10 +17,10 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	add_action( 'enqueue_block_assets', $n( 'blocks_scripts' ) );
-	add_action( 'enqueue_block_editor_assets', $n( 'blocks_editor_scripts' ) );
+	// add_action( 'enqueue_block_assets', $n( 'blocks_scripts' ) );
+	// add_action( 'enqueue_block_editor_assets', $n( 'blocks_editor_scripts' ) );
 
-	add_filter( 'block_categories', $n( 'blocks_categories' ), 10, 2 );
+	// add_filter( 'block_categories', $n( 'blocks_categories' ), 10, 2 );
 }
 
 /**
@@ -65,12 +65,12 @@ function blocks_editor_scripts() {
 		false
 	);
 
-	wp_enqueue_style(
-		'editor-style',
-		GEMEINDETAG_TEMPLATE_URL . '/dist/css/editor-style.css',
-		[],
-		GEMEINDETAG_VERSION
-	);
+	// wp_enqueue_style(
+	// 	'editor-style',
+	// 	GEMEINDETAG_TEMPLATE_URL . '/dist/css/editor-style.css',
+	// 	[],
+	// 	GEMEINDETAG_VERSION
+	// );
 
 }
 
