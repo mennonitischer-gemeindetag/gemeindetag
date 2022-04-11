@@ -41,6 +41,6 @@ jobs:
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           local_folder: './'
           remote_folder: '~/html/wordpress/wp-content/themes/gemeindetag/'
-          deleteRemote: true
+          cleanup: true
           exclude: '[ "node_modules/**", "node_modules/**/.*", ".git/**", "phpcs.xml", "package.json", "package-lock.json", "assets/**", "composer.json", "composer.lock" ]'
         
