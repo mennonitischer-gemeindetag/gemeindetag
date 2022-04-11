@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches: [ master ]
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: gemeindetag.mennoniten.de
-      url: gemeindetag.mennoniten.de
+      url: https://gemeindetag.mennoniten.de
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -42,5 +42,4 @@ jobs:
           local_folder: './'
           remote_folder: '~/html/wordpress/wp-content/themes/gemeindetag/'
           cleanup: true
-          exclude: '["node_modules/, node_modules/**, node_modules/**/.*, .git/**, phpcs.xml, package.json, package-lock.json, assets/**, composer.json, composer.lock"]'
-        
+
