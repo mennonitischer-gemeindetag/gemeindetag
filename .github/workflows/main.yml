@@ -23,15 +23,15 @@ jobs:
         run: npm run build
 
       - name: ssh deploy
-        uses: easingthemes/ssh-deploy@v2.1.6
+        uses: kostya-ten/ssh-server-deploy@v4
         with:
           # Private Key
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_PASSWORD }}
+          password: ${{ secrets.SERVER_SSH_PASSWORD }}
           # Remote host
-          REMOTE_HOST: ${{ secrets.SERVER_IP }}
+          host: ${{ secrets.SERVER_IP }}
           # Remote user
-          REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+          username: ${{ secrets.SERVER_USERNAME }}
           # Target directory in the format of `sites/${domain}/files/wp-content/...`
-          TARGET: html/wordpress/wp-content/themes/gemeindetag/
+          scp_target: html/wordpress/wp-content/themes/gemeindetag/
           # An array of folder to exclude
           EXCLUDE: node_modules, .git
