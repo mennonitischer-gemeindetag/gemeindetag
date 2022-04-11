@@ -17,7 +17,7 @@ define( 'GEMEINDETAG_THEME_BLOCK_DIR', GEMEINDETAG_THEME_INC . 'blocks/' );
 
 if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG && file_exists( __DIR__ . '/dist/fast-refresh.php' ) ) {
 	require_once __DIR__ . '/dist/fast-refresh.php';
-	TenUpToolkit\set_dist_url_path( basename( __DIR__ ), GEMEINDETAG_THEME_DIST_URL, GEMEINDETAG_THEME_DIST_PATH );
+	TenUpToolkit\set_dist_url_path( basename( __DIR__ ), GEMEINDETAG_THEME_DIST_URL, GEMEINDETAG_THEME_DIST_PATH ); // phpcs:ignore
 }
 
 
