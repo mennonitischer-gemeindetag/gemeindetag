@@ -1,6 +1,0 @@
-.wp-block-gemeindetag-anmeldeformular {
-	--padding: 50px;
-	margin-top: 3rem;
-	max-width: calc(var(--w-standard) + 2 * var(--padding));
-	padding: var(--padding);
-}

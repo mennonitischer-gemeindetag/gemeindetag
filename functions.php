@@ -2,28 +2,38 @@
 /**
  * WP Theme constants and setup functions
  *
- * @package Gemeindetag
+ * @package GemeindetagTheme
  */
 
 // Useful global constants.
-define( 'GEMEINDETAG_VERSION', '0.1.0' );
-define( 'GEMEINDETAG_TEMPLATE_URL', get_template_directory_uri() );
-define( 'GEMEINDETAG_PATH', get_template_directory() . '/' );
-define( 'GEMEINDETAG_INC', GEMEINDETAG_PATH . 'includes/' );
+define( 'GEMEINDETAG_THEME_VERSION', '0.1.0' );
+define( 'GEMEINDETAG_THEME_TEMPLATE_URL', get_template_directory_uri() );
+define( 'GEMEINDETAG_THEME_PATH', get_template_directory() . '/' );
+define( 'GEMEINDETAG_THEME_DIST_PATH', GEMEINDETAG_THEME_PATH . 'dist/' );
+define( 'GEMEINDETAG_THEME_DIST_URL', GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/' );
+define( 'GEMEINDETAG_THEME_INC', GEMEINDETAG_THEME_PATH . 'includes/' );
+define( 'GEMEINDETAG_THEME_BLOCK_DIR', GEMEINDETAG_THEME_INC . 'blocks/' );
 
-require_once GEMEINDETAG_INC . 'core.php';
-require_once GEMEINDETAG_INC . 'overrides.php';
-require_once GEMEINDETAG_INC . 'template-tags.php';
-require_once GEMEINDETAG_INC . 'utility.php';
-require_once GEMEINDETAG_INC . 'blocks.php';
+
+if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG && file_exists( __DIR__ . '/dist/fast-refresh.php' ) ) {
+	require_once __DIR__ . '/dist/fast-refresh.php';
+	TenUpToolkit\set_dist_url_path( basename( __DIR__ ), GEMEINDETAG_THEME_DIST_URL, GEMEINDETAG_THEME_DIST_PATH );
+}
+
+
+require_once GEMEINDETAG_THEME_INC . 'core.php';
+require_once GEMEINDETAG_THEME_INC . 'overrides.php';
+require_once GEMEINDETAG_THEME_INC . 'template-tags.php';
+require_once GEMEINDETAG_THEME_INC . 'utility.php';
+require_once GEMEINDETAG_THEME_INC . 'blocks.php';
 
 // Run the setup functions.
-Gemeindetag\Core\setup();
-Gemeindetag\Blocks\setup();
+GemeindetagTheme\Core\setup();
+GemeindetagTheme\Blocks\setup();
 
 // Require Composer autoloader if it exists.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require_once 'vendor/autoload.php';
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
 if ( ! function_exists( 'wp_body_open' ) ) {

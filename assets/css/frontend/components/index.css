@@ -1,10 +1,2 @@
 /* Components */
-@import "menu.css";
-@import "menu-item.css";
-@import "menu-toggle.css";
-@import "button.css";
-@import "site-branding.css";
-@import "input.css";
-@import "post.css";
-@import "page-title.css";
-@import "list.css";
+@import url("skip-to-content-link.css");

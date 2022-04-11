@@ -95,7 +95,6 @@
           ]
       },
       "spacing": {
-          "units": false,
           "padding": true,
           "blockGap": true,
           "margin": true

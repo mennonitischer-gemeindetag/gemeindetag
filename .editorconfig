@@ -8,8 +8,8 @@ trim_trailing_whitespace = true
 indent_style = tab
 
 [{*.json,*.yml,.babelrc,.bowerrc,.browserslistrc,.postcssrc}]
-indent_style = space
-indent_size = 2
+indent_style = tabs
+indent_size = 4
 
 [*.txt,wp-config-sample.php]
 end_of_line = crlf

@@ -2,10 +2,12 @@
 /**
  * Core setup, site hooks and filters.
  *
- * @package Gemeindetag\Core
+ * @package GemeindetagTheme
  */
 
-namespace Gemeindetag\Core;
+namespace GemeindetagTheme\Core;
+
+use GemeindetagTheme\Utility;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -17,27 +19,31 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	// add_action( 'after_setup_theme', $n( 'i18n' ) );
+	add_action( 'after_setup_theme', $n( 'i18n' ) );
 	add_action( 'after_setup_theme', $n( 'theme_setup' ) );
-	// add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
-	add_action( 'init', $n( 'styles' ) );
-	// add_action( 'wp_head', $n( 'js_detection' ), 0 );
-	// add_action( 'wp_head', $n( 'add_manifest' ), 10 );
+	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
+	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
+	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
+	add_action( 'enqueue_block_editor_assets', $n( 'core_block_overrides' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
+	add_action( 'wp_head', $n( 'js_detection' ), 0 );
+	add_action( 'wp_head', $n( 'add_manifest' ), 10 );
+	add_action( 'wp_head', $n( 'embed_ct_css' ), 0 );
 
-	// add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
+	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
 }
 
 /**
  * Makes Theme available for translation.
  *
  * Translations can be added to the /languages directory.
- * If you're building a theme based on "gemeindetag", change the
- * filename of '/languages/Gemeindetag.pot' to the name of your project.
+ * If you're building a theme based on "gemeindetag-theme", change the
+ * filename of '/languages/GemeindetagTheme.pot' to the name of your project.
  *
  * @return void
  */
 function i18n() {
-	load_theme_textdomain( 'gemeindetag', GEMEINDETAG_PATH . '/languages' );
+	load_theme_textdomain( 'gemeindetag-theme', GEMEINDETAG_THEME_PATH . '/languages' );
 }
 
 /**
@@ -47,6 +53,7 @@ function theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'editor-styles' );
 	add_theme_support(
 		'html5',
 		array(
@@ -54,86 +61,16 @@ function theme_setup() {
 			'gallery',
 		)
 	);
-	add_theme_support( 'align-wide' );
-	add_theme_support( 'wp-block-styles' );
-	add_theme_support(
-		'html5',
-		[
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		]
-	);
 
-	add_theme_support(
-		'post-formats',
-		[
-			'aside',
-			'image',
-			'video',
-			'quote',
-			'link',
-			'gallery',
-			'audio',
-		]
-	);
-	add_theme_support( 'custom-logo', [ 'flex-width' => true ] );
-	add_theme_support(
-		'custom-header',
-		[
-			'video'          => true,
-			'height'         => '500',
-			'width'          => '1200',
-			'flex-height'    => true,
-			'flex-width'     => true,
-			'uploads'        => true,
-			'random-default' => false,
-			'header-text'    => false,
-		]
-	);
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_editor_style( 'dist/css/frontend.css' );
+
+	remove_theme_support( 'core-block-patterns' );
 
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'gemeindetag' ),
-			'legal'   => esc_html__( 'Legal Menu', 'gemeindetag' ),
+			'primary' => esc_html__( 'Primary Menu', 'gemeindetag-theme' ),
 		)
-	);
-
-	register_sidebar(
-		[
-			'name'          => __( 'Footer Left', 'gemeindetag' ),
-			'id'            => 'footer-widgets-left',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'gemeindetag' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		]
-	);
-
-	register_sidebar(
-		[
-			'name'          => __( 'Footer Right', 'gemeindetag' ),
-			'id'            => 'footer-widgets-right',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'gemeindetag' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		]
-	);
-
-	register_meta(
-		'post',
-		'accentColor',
-		[
-			'type'         => 'string',
-			'single'       => true,
-			'show_in_rest' => true,
-		]
 	);
 }
 
@@ -144,16 +81,66 @@ function theme_setup() {
  */
 function scripts() {
 
+	/**
+	 * Enqueuing frontend.js is required to get css hot reloading working in the frontend
+	 * If you're not shipping any front-end js wrap this enqueue in a SCRIPT_DEBUG check.
+	 */
 	wp_enqueue_script(
-		'frontend',
-		GEMEINDETAG_TEMPLATE_URL . '/dist/js/frontend.js',
-		[],
-		GEMEINDETAG_VERSION,
+		'gemeindetag-theme-frontend-js',
+		GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/js/frontend.js',
+		Utility\get_asset_info( 'frontend', 'dependencies' ),
+		Utility\get_asset_info( 'frontend', 'version' ),
 		true
 	);
+}
 
-	wp_enqueue_style( 'dashicons' );
+/**
+ * Enqueue scripts for admin
+ *
+ * @return void
+ */
+function admin_scripts() {
+	wp_enqueue_script(
+		'gemeindetag-theme-admin-js',
+		GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/js/admin.js',
+		Utility\get_asset_info( 'admin', 'dependencies' ),
+		Utility\get_asset_info( 'admin', 'version' ),
+		true
+	);
+}
 
+/**
+ * Enqueue core block filters, styles and variations.
+ *
+ * @return void
+ */
+function core_block_overrides() {
+	$overrides = GEMEINDETAG_THEME_DIST_PATH . 'js/core-block-overrides.asset.php';
+	if ( file_exists( $overrides ) ) {
+		$dep = require_once $overrides;
+		wp_enqueue_script(
+			'gemeindetag-theme-core-block-overrides-js',
+			GEMEINDETAG_THEME_DIST_URL . 'js/core-block-overrides.js',
+			$dep['dependencies'],
+			$dep['version'],
+			true
+		);
+	}
+}
+
+/**
+ * Enqueue styles for admin
+ *
+ * @return void
+ */
+function admin_styles() {
+
+	wp_enqueue_style(
+		'gemeindetag-theme-admin-style',
+		GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/css/admin.css',
+		[],
+		Utility\get_asset_info( 'admin-style', 'version' )
+	);
 }
 
 /**
@@ -164,26 +151,12 @@ function scripts() {
 function styles() {
 
 	wp_enqueue_style(
-		'styles',
-		GEMEINDETAG_TEMPLATE_URL . '/dist/css/style.css',
+		'gemeindetag-theme-styles',
+		GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/css/frontend.css',
 		[],
-		GEMEINDETAG_VERSION
+		Utility\get_asset_info( 'frontend', 'version' )
 	);
 
-	global $post;
-
-	$accent_color = get_post_meta( get_the_ID(), 'accentColor', true );
-
-	$custom_css = '';
-	if ( isset( $accent_color ) && ! ( '' === $accent_color ) ) {
-		$custom_css = "
-			.site-content {
-				--c-accent: {$accent_color};
-			}";
-	}
-	wp_add_inline_style( 'styles', $custom_css );
-
-	add_editor_style( '/dist/css/style.css' );
 }
 
 /**
@@ -238,5 +211,32 @@ function script_loader_tag( $tag, $handle ) {
  * @return void
  */
 function add_manifest() {
-	echo "<link rel='manifest' href='" . esc_url( GEMEINDETAG_TEMPLATE_URL . '/manifest.json' ) . "' />";
+	echo "<link rel='manifest' href='" . esc_url( GEMEINDETAG_THEME_TEMPLATE_URL . '/manifest.json' ) . "' />";
+}
+
+/**
+ * Inlines ct.css in the head
+ *
+ * Embeds a diagnostic CSS file written by Harry Roberts
+ * that helps diagnose render blocking resources and other
+ * performance bottle necks.
+ *
+ * The CSS is inlined in the head of the document, only when requesting
+ * a page with the query param ?debug_perf=1
+ *
+ * @link https://csswizardry.com/ct/
+ * @return void
+ */
+function embed_ct_css() {
+
+	$debug_performance = rest_sanitize_boolean( filter_input( INPUT_GET, 'debug_perf', FILTER_SANITIZE_NUMBER_INT ) );
+
+	if ( ! $debug_performance ) {
+		return;
+	};
+
+	wp_register_style( 'ct' );
+	wp_enqueue_style( 'ct' );
+	wp_add_inline_style( 'ct', 'head{--ct-is-problematic:solid;--ct-is-affected:dashed;--ct-notify:#0bce6b;--ct-warn:#ffa400;--ct-error:#ff4e42}head,head [rel=stylesheet],head script,head script:not([src])[async],head script:not([src])[defer],head script~meta[http-equiv=content-security-policy],head style,head>meta[charset]:not(:nth-child(-n+5)){display:block}head [rel=stylesheet],head script,head script~meta[http-equiv=content-security-policy],head style,head title,head>meta[charset]:not(:nth-child(-n+5)){margin:5px;padding:5px;border-width:5px;background-color:#fff;color:#333}head ::before,head script,head style{font:16px/1.5 monospace,monospace;display:block}head ::before{font-weight:700}head link[rel=stylesheet],head script[src]{border-style:var(--ct-is-problematic);border-color:var(--ct-warn)}head script[src]::before{content:"[Blocking Script – " attr(src) "]"}head link[rel=stylesheet]::before{content:"[Blocking Stylesheet – " attr(href) "]"}head script:not(:empty),head style:not(:empty){max-height:5em;overflow:auto;background-color:#ffd;white-space:pre;border-color:var(--ct-notify);border-style:var(--ct-is-problematic)}head script:not(:empty)::before{content:"[Inline Script] "}head style:not(:empty)::before{content:"[Inline Style] "}head script:not(:empty)~title,head script[src]:not([async]):not([defer]):not([type=module])~title{display:block;border-style:var(--ct-is-affected);border-color:var(--ct-error)}head script:not(:empty)~title::before,head script[src]:not([async]):not([defer]):not([type=module])~title::before{content:"[<title> blocked by JS] "}head [rel=stylesheet]:not([media=print]):not(.ct)~script,head style:not(:empty)~script{border-style:var(--ct-is-affected);border-color:var(--ct-warn)}head [rel=stylesheet]:not([media=print]):not(.ct)~script::before,head style:not(:empty)~script::before{content:"[JS blocked by CSS – " attr(src) "]"}head script[src][src][async][defer]{display:block;border-style:var(--ct-is-problematic);border-color:var(--ct-warn)}head script[src][src][async][defer]::before{content:"[async and defer is redundant: prefer defer – " attr(src) "]"}head script:not([src])[async],head script:not([src])[defer]{border-style:var(--ct-is-problematic);border-color:var(--ct-warn)}head script:not([src])[async]::before{content:"The async attribute is redundant on inline scripts"}head script:not([src])[defer]::before{content:"The defer attribute is redundant on inline scripts"}head [rel=stylesheet][href^="//"],head [rel=stylesheet][href^=http],head script[src][src][src^="//"],head script[src][src][src^=http]{border-style:var(--ct-is-problematic);border-color:var(--ct-error)}head script[src][src][src^="//"]::before,head script[src][src][src^=http]::before{content:"[Third Party Blocking Script – " attr(src) "]"}head [rel=stylesheet][href^="//"]::before,head [rel=stylesheet][href^=http]::before{content:"[Third Party Blocking Stylesheet – " attr(href) "]"}head script~meta[http-equiv=content-security-policy]{border-style:var(--ct-is-problematic);border-color:var(--ct-error)}head script~meta[http-equiv=content-security-policy]::before{content:"[Meta CSP defined after JS]"}head>meta[charset]:not(:nth-child(-n+5)){border-style:var(--ct-is-problematic);border-color:var(--ct-warn)}head>meta[charset]:not(:nth-child(-n+5))::before{content:"[Charset should appear as early as possible]"}link[rel=stylesheet].ct,link[rel=stylesheet][media=print],script[async],script[defer],script[type=module],style.ct{display:none}' );
+
 }

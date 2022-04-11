@@ -1,16 +1,7 @@
 /**
- * Gemeindetag: Gutenberg Blocks Styles
- * https://gemeindetag.mennoniten.de
+ * GemeindetagTheme: Block styles
+ * https://project-website.tld
  *
  */
 
-/**
-* Gutenberg blocks front-end styles:
-* create new partials here as needed
-*/
-
-@import url("wp-block-spacer.css");
-@import url("wp-block-gemeindetag-anmeldeformular.css");
-@import url("wp-block-media-text.css");
-@import url("wp-block-button.css");
-@import url("wp-block-gemeindetag-send-email.css");
+/* @import url("example-block.css"); */

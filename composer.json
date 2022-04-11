@@ -1,5 +1,5 @@
 {
-  "name": "10up/gemeindetag",
+  "name": "10up/wp-theme",
   "type": "wordpress-theme",
   "authors": [
     {
@@ -12,17 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gemeindetag\\": "includes/classes/"
+      "GemeindetagTheme\\": "includes/classes/"
     }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require-dev": {
-    "10up/wpacceptance": "dev-master",
-    "10up/phpcs-composer": "dev-master"
-  },
-  "scripts": {
-    "lint": "phpcs .",
-    "lint-fix": "phpcbf ."
   }
 }

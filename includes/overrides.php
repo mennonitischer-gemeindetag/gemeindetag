@@ -2,10 +2,10 @@
 /**
  * This file contains hooks and functions that override the behavior of WP Core.
  *
- * @package Gemeindetag
+ * @package GemeindetagTheme
  */
 
-namespace Gemeindetag\Overrides;
+namespace GemeindetagTheme\Overrides;
 
 /**
  * Registers instances where we will override default WP Core behavior.
