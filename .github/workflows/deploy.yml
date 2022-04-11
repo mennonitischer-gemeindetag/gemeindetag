@@ -42,5 +42,5 @@ jobs:
           local_folder: './'
           remote_folder: '~/html/wordpress/wp-content/themes/gemeindetag/'
           cleanup: true
-          exclude: "node_modules/, node_modules/**, node_modules/**/.*, .git/**, phpcs.xml, package.json, package-lock.json, assets/**, composer.json, composer.lock"
+          exclude: '["node_modules/, node_modules/**, node_modules/**/.*, .git/**, phpcs.xml, package.json, package-lock.json, assets/**, composer.json, composer.lock"]'
         
