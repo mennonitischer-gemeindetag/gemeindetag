@@ -6,7 +6,7 @@
  */
 
 // Useful global constants.
-define( 'GEMEINDETAG_THEME_VERSION', '0.1.0' );
+define( 'GEMEINDETAG_THEME_VERSION', '1.0.0' );
 define( 'GEMEINDETAG_THEME_TEMPLATE_URL', get_template_directory_uri() );
 define( 'GEMEINDETAG_THEME_PATH', get_template_directory() . '/' );
 define( 'GEMEINDETAG_THEME_DIST_PATH', GEMEINDETAG_THEME_PATH . 'dist/' );
