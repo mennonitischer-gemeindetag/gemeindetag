@@ -40,5 +40,5 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           local_folder: .
-          remote_folder: /html/wordpress/wp-content/themes/gemeindetag/
+          remote_folder: /home/www/p614762/html/wordpress/wp-content/themes/gemeindetag/
         
