@@ -33,5 +33,4 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           # Target directory in the format of `sites/${domain}/files/wp-content/...`
           scp_target: html/wordpress/wp-content/themes/gemeindetag/
-          # An array of folder to exclude
-          EXCLUDE: node_modules, .git
+          scp_source: ./
