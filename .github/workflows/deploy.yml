@@ -41,5 +41,4 @@ jobs:
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           local_folder: .
           remote_folder: /html/wordpress/wp-content/themes/gemeindetag/
-          exclude: "['node_modules/**', '.git/**', '*.env']"
         
