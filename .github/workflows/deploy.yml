@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        uses: https://github.com/fabian-kaegy-org/ftp-deployer
+        uses: https://github.com/fabian-kaegy-org/ftp-deployer@latest
         with:
           sftp: false
           host: ${{ secrets.SERVER_IP }}
