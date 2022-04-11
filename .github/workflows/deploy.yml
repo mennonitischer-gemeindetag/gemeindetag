@@ -23,14 +23,11 @@ jobs:
         run: npm run build
 
       - name: ssh deploy
-        uses: kostya-ten/ssh-server-deploy@v4
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          # Private Key
-          password: ${{ secrets.SERVER_SSH_PASSWORD }}
-          # Remote host
           host: ${{ secrets.SERVER_IP }}
-          # Remote user
-          username: ${{ secrets.SERVER_USERNAME }}
-          # Target directory in the format of `sites/${domain}/files/wp-content/...`
-          scp_target: html/wordpress/wp-content/themes/gemeindetag/
-          scp_source: ./
+          user: ${{ secrets.SERVER_USERNAME }}
+          pass: ${{ secrets.SERVER_SSH_PASSWORD }}
+          scp: |
+            './**/*' => /html/wordpress/wp-content/themes/gemeindetag/
+          
