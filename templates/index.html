@@ -1,27 +1,39 @@
 <!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
 
 <!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","bottom":"5rem"}}}} -->
-<div class="wp-block-group" style="margin-top:0px;margin-bottom:5rem"><!-- wp:post-featured-image {"width":"100%","height":"25rem"} /--></div>
+<div class="wp-block-group" style="margin-top:0px;margin-bottom:5rem">
+	<!-- wp:post-featured-image {"width":"100%","height":"25rem"} /-->
+</div>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group"><!-- wp:post-title {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"4rem"}}},"textColor":"allgemein"} /-->
+<div class="wp-block-group">
+	<!-- wp:post-title {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"4rem"}}},"textColor":"allgemein"} /-->
 
-<!-- wp:query {"queryId":7,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
-<!-- wp:columns {"align":"wide"} -->
-<div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
-<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:post-featured-image {"isLink":true} /--></div>
-<!-- /wp:column -->
+	<!-- wp:query {"queryId":7,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:columns {"align":"wide"} -->
+		<div class="wp-block-columns alignwide">
+			<!-- wp:column {"width":"33.33%"} -->
+			<div class="wp-block-column" style="flex-basis:33.33%">
+				<!-- wp:post-featured-image {"isLink":true} /-->
+			</div>
+			<!-- /wp:column -->
 
-<!-- wp:column {"width":"66.66%"} -->
-<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:post-title {"isLink":true} /-->
+			<!-- wp:column {"width":"66.66%"} -->
+			<div class="wp-block-column" style="flex-basis:66.66%">
+				<!-- wp:post-title {"isLink":true} /-->
 
-<!-- wp:post-excerpt /--></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
+				<!-- wp:post-excerpt /-->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</div>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer"} /-->
