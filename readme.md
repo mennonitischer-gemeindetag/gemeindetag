@@ -1,3 +1,5 @@
-# gemeindetag
+# Gemeindetag
 
-WordPress Theme für den Mennonitischen Gemeindetag 2020 auf dem Weierhof.
+![Theme Screenshot](./screenshot.png)
+
+WordPress Theme für Mennonitische Gemeindetage
