@@ -4,4 +4,10 @@
  *
  */
 
-@import url("https://use.typekit.net/yrd4qvx.css");
+@import url("./settings/index.css");
+@import url("./tools/index.css");
+@import url("./generics/index.css");
+@import url("./elements/index.css");
+@import url("./objects/index.css");
+@import url("./components/index.css");
+@import url("./utilities/index.css");

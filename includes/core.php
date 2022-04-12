@@ -61,7 +61,12 @@ function theme_setup() {
 		)
 	);
 
-	add_editor_style( 'dist/css/frontend.css' );
+	add_editor_style(
+		[
+			'dist/css/frontend.css',
+			'https://use.typekit.net/yrd4qvx.css',
+		]
+	);
 
 	remove_theme_support( 'core-block-patterns' );
 
@@ -154,6 +159,13 @@ function styles() {
 		GEMEINDETAG_THEME_TEMPLATE_URL . '/dist/css/frontend.css',
 		[],
 		Utility\get_asset_info( 'frontend', 'version' )
+	);
+
+	wp_enqueue_style(
+		'gemeindetag-adobe-fonts',
+		'https://use.typekit.net/yrd4qvx.css',
+		[],
+		wp_get_theme()->get( 'Version' )
 	);
 
 }
