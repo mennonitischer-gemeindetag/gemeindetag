@@ -21,56 +21,9 @@ function setup() {
 	};
 
 	add_action( 'enqueue_block_editor_assets', $n( 'blocks_editor_styles' ) );
-	add_filter( 'block_categories_all', $n( 'blocks_categories' ), 10, 2 );
-	add_action( 'init', $n( 'register_theme_blocks' ) );
 	add_action( 'init', $n( 'register_theme_block_patterns' ) );
 	add_action( 'init', $n( 'register_block_pattern_categories' ) );
 	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
-}
-
-/**
- * Automatically registers all blocks that are located within the includes/blocks directory
- *
- * @return void
- */
-function register_theme_blocks() {
-	// Filter the plugins URL to allow us to have blocks in themes with linked assets. i.e editorScripts
-	add_filter( 'plugins_url', __NAMESPACE__ . '\filter_plugins_url', 10, 2 );
-
-	// Register all the blocks in the theme
-	if ( file_exists( GEMEINDETAG_THEME_BLOCK_DIR ) ) {
-		$block_json_files = glob( GEMEINDETAG_THEME_BLOCK_DIR . '*/block.json' );
-
-		// auto register all blocks that were found.
-		foreach ( $block_json_files as $filename ) {
-
-			$block_folder = dirname( $filename );
-
-			$block_options = [];
-
-			$markup_file_path = $block_folder . '/markup.php';
-			if ( file_exists( $markup_file_path ) ) {
-
-				// only add the render callback if the block has a file called markdown.php in it's directory
-				$block_options['render_callback'] = function( $attributes, $content, $block ) use ( $block_folder ) {
-
-					// create helpful variables that will be accessible in markup.php file
-					$context            = $block->context;
-					$wrapper_attributes = wp_kses_post( get_block_wrapper_attributes() );
-
-					// get the actual markup from the markup.php file
-					ob_start();
-					include $block_folder . '/markup.php';
-					return ob_get_clean();
-				};
-			};
-
-			register_block_type_from_metadata( $block_folder, $block_options );
-		};
-	};
-
-	// Remove the filter after we register the blocks
-	remove_filter( 'plugins_url', __NAMESPACE__ . '\filter_plugins_url', 10, 2 );
 }
 
 /**
@@ -85,7 +38,6 @@ function filter_plugins_url( $url, $path ) {
 	$file = preg_replace( '/\.\.\//', '', $path );
 	return trailingslashit( get_stylesheet_directory_uri() ) . $file;
 }
-
 
 /**
  * Enqueue editor-only JavaScript/CSS for blocks.
@@ -111,26 +63,6 @@ function blocks_editor_styles() {
 	}
 
 }
-
-/**
- * Filters the registered block categories.
- *
- * @param array $categories Registered categories.
- *
- * @return array Filtered categories.
- */
-function blocks_categories( $categories ) {
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug'  => 'gemeindetag',
-				'title' => __( 'Gemeindetag Blocks', 'gemeindetag-theme' ),
-			),
-		)
-	);
-}
-
 
 /**
  * Manage block pattern categories
