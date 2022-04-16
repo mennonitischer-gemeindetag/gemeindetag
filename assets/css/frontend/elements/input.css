@@ -1,0 +1,17 @@
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]),
+textarea {
+	border: 0.5px var(--wp--preset--color--dark-grey) solid;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: 100%;
+	margin: 8px 0;
+	outline: none;
+	padding: 5px 10px;
+	transition: 0.2s ease;
+}
+
+textarea {
+	overflow: auto;
+	resize: none;
+}

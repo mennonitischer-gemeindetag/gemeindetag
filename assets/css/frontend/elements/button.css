@@ -1,0 +1,32 @@
+button,
+.btn,
+.button,
+a.button,
+a.btn,
+input[type="submit"] {
+	-webkit-appearance: none;
+	background-color: var(--wp--preset--color--allgemein);
+	border: none;
+	border-radius: var(--border-radius);
+	color: var(--c-white);
+	display: inline-block;
+	line-height: 1.5;
+	padding: 1em 2em;
+	text-decoration: none;
+	transition: 150ms ease-in-out;
+	vertical-align: bottom;
+
+	& *,
+	& a {
+		color: var(--c-white);
+	}
+
+	&:hover {
+		background-color: var(--wp--preset--color--allgemein);
+		filter: brightness(95%);
+	}
+}
+
+.back-to-archive {
+	margin-top: 2rem;
+}
