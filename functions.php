@@ -49,3 +49,15 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 function gemeindetag_export_array_to_string( $value ) {
 	return implode( ', ', unserialize( $value ) );
 }
+
+function gemeindetag_export_workshop_names( $value ) {
+	$workshops = unserialize( $value );
+	$names     = array();
+	foreach ( $workshops as $workshop ) {
+		$number = get_post_meta( $workshop, 'nr', true );
+		$char = get_post_meta( $workshop, 'character', true );
+
+		$names[] = $number . $char;
+	}
+	return implode( ', ', $names );
+}
