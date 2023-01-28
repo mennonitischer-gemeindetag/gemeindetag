@@ -45,3 +45,7 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		do_action( 'wp_body_open' );
 	}
 }
+
+function gemeindetag_export_array_to_string( $value ) {
+	return implode( ', ', unserialize( $value ) );
+}
