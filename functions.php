@@ -57,7 +57,7 @@ function gemeindetag_export_workshop_names( $value ) {
 		$number = get_post_meta( $workshop, 'nr', true );
 		$char = get_post_meta( $workshop, 'character', true );
 
-		$names[] = $number . $char;
+		$names[] = $char . $number;
 	}
 	return implode( ', ', $names );
 }
