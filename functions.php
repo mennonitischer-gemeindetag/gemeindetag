@@ -47,11 +47,18 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 }
 
 function gemeindetag_export_array_to_string( $value ) {
-	return implode( ', ', unserialize( $value ) );
+	$collection = unserialize( $value );
+
+	if ( empty( $collection ) || count( $collection ) === 0 ) {
+		return '';
+	}
+
+	return implode( ', ', $collection );
 }
 
 function gemeindetag_export_workshop_names( $value ) {
 	$workshops = unserialize( $value );
+
 	$names     = array();
 	foreach ( $workshops as $workshop ) {
 		$number = get_post_meta( $workshop, 'nr', true );
